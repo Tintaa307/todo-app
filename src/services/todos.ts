@@ -17,7 +17,9 @@ export const fetchTodos = async (): Promise<Todo[]> => {
   }
 
   const { record: todos } = (await res.json()) as { record: Todo[] }
-  return todos
+  return todos.filter(
+    (todo) => todo.title !== "Conseguir ticket de la midufest"
+  )
 }
 
 export const updateTodos = async ({
